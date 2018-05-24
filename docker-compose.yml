@@ -1,13 +1,13 @@
-version: "3"
+version: '3'
 services:
     redis:
-        image: "redis"
+        image: redis
     web-application:
-        build: "."
+        build: web-application
         environment:
-            - "PORT=8080"
-            - "REDIS_HOST=redis"
+            - PORT=8080
+            - REDIS_HOST=redis
         ports:
-            - "8080:8080"
+            - 8080:8080
         depends_on:
-            - "redis"
+            - redis
