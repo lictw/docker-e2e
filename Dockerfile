@@ -1,10 +1,10 @@
 FROM golang:1.10.2 AS builder
 
-WORKDIR /
+WORKDIR /go/src/application
 COPY . .
-RUN go build -ldflags '-linkmode external -extldflags "-static"' main.go
+RUN go get . && go install -ldflags '-linkmode external -extldflags "-static"' 2> /dev/null
 
 FROM scratch
-COPY --from=builder /main /web-application
+COPY --from=builder /go/bin/application /web-application
 COPY index.html /
 CMD ["/web-application"]
