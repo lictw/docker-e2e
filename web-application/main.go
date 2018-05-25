@@ -82,7 +82,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			} else {
 				value = r.FormValue("value")
 				if action == "SET" && key != "" && value != "" {
-					redisClient.Set(key, value + "x", 0)
+					redisClient.Set(key, value, 0)
 				}
 			}
 		}
