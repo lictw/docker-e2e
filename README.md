@@ -16,4 +16,7 @@ If the command below ends with zero exit code - everything is fine!
 ```
 make test
 ```
-
+To start tests on local setup run command: (all from *./tests/requirements.txt* and **chromedriver** should be installed, and web application must be running)
+```
+make test-local
+```
