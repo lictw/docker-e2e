@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple web application</title>
+  <meta charset="UTF-8">
+  <title>Simple web application</title>
 </head>
 <body>
-    <form action="/" method="POST">
-        <div>
-            <label>Key:</label>
-            <input id="key" name="key" value="{{ .Key }}">
-        </div>
-        <div>
-            <label>Value:</label>
-            <input id="value" name="value" value="{{ .Value }}">
-        </div>
-        <div>
-            <input id="get" type="submit" name="action" value="GET">
-            <input id="set" type="submit" name="action" value="SET">
-        </div>
-    </form>
+<form action="/" method="POST">
+  <div>
+    <label>Key:</label>
+    <input id="key" name="key" value="{{ .Key }}">
+  </div>
+  <div>
+    <label>Value:</label>
+    <input id="value" name="value" value="{{ .Value }}">
+  </div>
+  <div>
+    <input id="get" type="submit" name="action" value="GET">
+    <input id="set" type="submit" name="action" value="SET">
+  </div>
+</form>
 </body>
 </html>

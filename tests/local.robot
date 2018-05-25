@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation   Locally testing of a simple web application
-Resource        resource.robot
-Suite Teardown  Close Browser
+Documentation                     Locally testing of a simple web application
+Resource                          resource.robot
+Suite Teardown                    Close Browser
 
 *** Test Cases ***
 Open Web Application And Set Pairs
