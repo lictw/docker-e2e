@@ -12,11 +12,11 @@ DOCKER_COMPOSE_TEST_COMMAND := $(DOCKER_COMPOSE_COMMAND) -f $(DOCKER_COMPOSE_TES
 .PHONY: build clean test
 
 build:
-	docker build -t $(NAME):$(VERSION) web-application
+	@ docker build -t $(NAME):$(VERSION) web-application
 
 clean:
-	docker stop $$(docker ps -q)
-	docker system prune -f
+	@ docker stop $$(docker ps -q) || true
+	@ docker system prune -f
 
 test:
 	@ $(DOCKER_COMPOSE_TEST_COMMAND) build
