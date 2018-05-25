@@ -4,4 +4,4 @@ WORKDIR /tests
 COPY . .
 RUN pip install -r requirements.txt
 
-CMD robot --outputdir /results .
+CMD robot --outputdir /results selenium.robot
