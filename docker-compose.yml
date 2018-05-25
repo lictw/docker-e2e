@@ -9,3 +9,18 @@ services:
             - REDIS_HOST=redis
         depends_on:
             - redis
+    nginx:
+      image: nginx
+      command: /bin/bash -c "export DOLLAR='$$'; rm -f /etc/nginx/conf.d/default.conf; mkdir /etc/nginx/location.d;
+        envsubst < /etc/nginx/template.d/application.location > /etc/nginx/location.d/application.conf &&
+        nginx -g 'daemon off;'"
+      volumes:
+        - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./nginx/template.d:/etc/nginx/template.d:ro
+        - ./nginx/conf.d:/etc/nginx/conf.d:ro
+        - ./nginx/key.d:/etc/nginx/key.d:ro
+      environment:
+        - APPLICATION_HOST=web-application
+        - APPLICATION_PORT=8080
+      depends_on:
+        - web-application

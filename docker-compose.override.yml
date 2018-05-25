@@ -1,5 +1,6 @@
 version: '3'
 services:
-    web-application:
-        ports:
-            - 8080:8080
+  nginx:
+    ports:
+      - 8080:80
+      - 1337:443
