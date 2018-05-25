@@ -5,19 +5,21 @@
   <title>Simple web application</title>
 </head>
 <body>
-<form action="/" method="POST">
-  <div>
-    <label>Key:</label>
-    <input id="key" name="key" value="{{ .Key }}">
-  </div>
-  <div>
-    <label>Value:</label>
-    <input id="value" name="value" value="{{ .Value }}">
-  </div>
-  <div>
-    <input id="get" type="submit" name="action" value="GET">
-    <input id="set" type="submit" name="action" value="SET">
-  </div>
-</form>
+<div style="width:300px; margin:20px; text-align: right">
+  <form action="/" method="POST">
+    <div>
+      <label>Key:</label>
+      <input id="key" name="key" value="{{ .Key }}">
+    </div>
+    <div style="margin: 5px 0;">
+      <label>Value:</label>
+      <input id="value" name="value" value="{{ .Value }}">
+    </div>
+    <div>
+      <input id="get" type="submit" name="action" value="GET">
+      <input id="set" type="submit" name="action" value="SET">
+    </div>
+  </form>
+</div>
 </body>
 </html>
