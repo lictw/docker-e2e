@@ -1,1 +1,3 @@
 .idea/
+tests/results/**/*.xml
+tests/results/**/*.html

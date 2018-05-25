@@ -1,0 +1,5 @@
+version: '3'
+services:
+    web-application:
+        ports:
+            - 8080:8080
