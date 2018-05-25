@@ -1,9 +1,19 @@
 sudo: required
-
 language: bash
-
 services:
   - docker
-
 script:
   - make test
+before_deploy:
+  - git config --local user.name "Tw1ce"
+  - git config --local user.email "tw.licate@gmail.com"
+  - git tag "$(date +'%Y-%m-%d.%H:%M:%S')"
+deploy:
+  provider: releases
+  api_key:
+    secure: WF6Q+d29LdUsm0RYurTIyeO8GYx4Ona4O1U855EMZ9hQkrqlSPagqZqDIiJlizFQQHa31eSMwjvT5qBoPJnY6EMsnx/6r70TUhqWC6IttpTdemRDf7xtsLjv4Rbld+0lgQzS3AroGaWekcYaO2bWlHIX4BYYFUIzyTC1RVFf13wbS0pLOAS7GbUPVNJE6MHPln62qlkNAjMR11G1cYogzTe0dvzQK7vAi/JC4WI1E6gcBsMRn/7WF045T9NREyWIdc7mtnkTem/1amEHz+DdNO4mP83wcVOFkX6wjW1e1GblHWpjn/gWRD0/AEAumdg3P8SAr+1KV45SN7G3R5ZjlegktTvluqgnznaC9vC1JXRxEFWUiz+Fno5vMpmMPx6hIXUH6Y0zMzgLsI92i0nL8v0545PpYygO4c9xgmNo95IEVyWOt1z3Q0m9CJw29YLjMbDL2qB+4zeXDS6SLmF8Gy2xw+nyoGSqfkEzSUI3IW5EpYxkTFyVsHUQyJ3kdVhwZgbDvo4vGYJugYPEWlPJxeWi4jiiYBruRCoQOF18okT6p77wYlL2ZKhsciEZ5avncSi+cr1Kj8RsHlvQLxpirzLbVb4wFrTSNvjOTfghHvWFaBcOBcuwteeqlNYA/bqpJrqxhxFAwXvOKsgO5DWuYSDq3UedsTKgLoxDbVCQd98=
+  file:
+    - ./tests/results/log.html
+    - ./tests/results/report.html
+    - ./tests/results/output.xml
+  skip_cleanup: true
